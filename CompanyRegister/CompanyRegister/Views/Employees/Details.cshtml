@@ -1,0 +1,41 @@
+﻿@model CompanyRegister.ViewModels.Employees.DetailsEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="h2 text-center font-weight-bold text-dark">Employee Details</div>
+<hr class="w-50" />
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 card card-body bg-transparent shadow">
+        <div class="row">
+            <div class="col-md-6">
+                <div><span class="font-weight-bold">First Name: </span>@Model.FirstName</div>
+                <div><span class="font-weight-bold">Last Name: </span>@Model.LastName</div>
+                <div><span class="font-weight-bold">Starting Date: </span>@Model.StartingDate.ToString("d")</div>
+                <div><span class="font-weight-bold">Salary: </span>@Model.Salary BGN</div>
+            </div>
+            <div class="col-md-6">
+                <div><span class="font-weight-bold">Vacation Days: </span>@Model.VacationDays</div>
+                <div><span class="font-weight-bold">Experience Level: </span>@Model.ExperienceLevel</div>
+                <div><span class="font-weight-bold">Company: </span>@Model.CompanyName</div>
+                <div><span class="font-weight-bold">Office: </span>@Model.Office</div>
+            </div>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-around mt-1">
+            <a asp-area="" asp-controller="Employees" asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn" style="background-color:peru">
+                <span class="text-white ml-2 mr-2">Edit</span>
+            </a>
+            <a asp-area="" asp-controller="Employees" asp-action="Delete" asp-route-id="@Model.Id"
+               class="btn" style="background-color:darkred">
+                <span class="text-white">Delete</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+

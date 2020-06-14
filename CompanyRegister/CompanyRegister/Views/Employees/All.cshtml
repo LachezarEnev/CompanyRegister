@@ -1,0 +1,55 @@
+﻿@model CompanyRegister.ViewModels.Employees.CompanyAllEmployeesViewModel
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<div class="text-center">
+    <h3>@Model.CompanyName Employees</h3>
+</div>
+
+@{
+    if (Model.Employees.Count() == 0)
+    {
+        <hr class="w-100" />
+        <div class="text-center mt-3">
+            <h2>There are no registered employees yet!</h2>            
+        </div>
+    }
+    else
+    {
+        <table class="table mt-3">
+            <thead>
+                <tr class="row" style="background-color: peru">
+                    <th scope="col" class="col-2 d-flex justify-content-center">FirstName</th>
+                    <th scope="col" class="col-2 d-flex justify-content-center">LastName</th>
+                    <th scope="col" class="col-3 d-flex justify-content-center">Experience level</th>
+                    <th scope="col" class="col-3 d-flex justify-content-center">Office</th>
+                    <th scope="col" class="col-2 d-flex justify-content-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr class="row" style="background-color: antiquewhite">
+                        <td class="col-2 d-flex justify-content-center">
+                            @employee.FirstName
+                        </td>
+                        <td class="col-2 d-flex justify-content-center">
+                            @employee.LastName
+                        </td>
+                        <td class="col-3 d-flex justify-content-center">
+                            @employee.ExperienceLevel
+                        </td>
+                        <td class="col-3 d-flex justify-content-center">
+                            @employee.Office
+                        </td>
+                        <td class="col-2 d-flex justify-content-center">
+                            <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-dark btn-sm mobile-fondsize-11">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

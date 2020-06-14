@@ -1,0 +1,58 @@
+﻿@model CompanyRegister.ViewModels.Employees.EditEmployeeInputModel
+@using CompanyRegister.Models.Enums;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="h2 text-center text-dark font-weight-bold">Edit Employee</div>
+<hr />
+<div class="row justify-content-center text-center">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartingDate" class="control-label"></label>
+                <input asp-for="StartingDate" class="form-control" />
+                <span asp-validation-for="StartingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VacationDays" class="control-label"></label>
+                <input asp-for="VacationDays" class="form-control" />
+                <span asp-validation-for="VacationDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExperienceLevel" class="control-label"></label>
+                <select asp-for="ExperienceLevel" class="form-control" asp-items="@Html.GetEnumSelectList<ExperienceLevel>()"></select>
+                <span asp-validation-for="ExperienceLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedOffice" class="control-label"></label>
+                <select asp-for="SelectedOffice" class="form-control" asp-items="@Model.Offices"></select>
+                <span asp-validation-for="SelectedOffice" class="text-danger"></span>
+            </div>           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

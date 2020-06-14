@@ -1,0 +1,55 @@
+﻿@model CompanyRegister.ViewModels.Offices.CompanyAllOfficesViewModel
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<div class="text-center">
+    <h3>@Model.CompanyName Offices</h3>
+</div>
+
+@{
+    if (Model.Offices.Count() == 0)
+    {
+        <hr class="w-100" />
+        <div class="text-center mt-3">
+            <h2>There are no registered offices yet!</h2>            
+        </div>
+    }
+    else
+    {
+        <table class="table mt-3">
+            <thead>
+                <tr class="row" style="background-color: peru">                    
+                    <th scope="col" class="col-2 d-flex justify-content-center">Country</th>
+                    <th scope="col" class="col-3 d-flex justify-content-center">City</th>
+                    <th scope="col" class="col-2 d-flex justify-content-center">Headquarter</th>
+                    <th scope="col" class="col-3 d-flex justify-content-center">Number of employees</th>
+                    <th scope="col" class="col-2 d-flex justify-content-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var office in Model.Offices)
+                {
+                <tr class="row" style="background-color: antiquewhite">                   
+                    <td class="col-2 d-flex justify-content-center">
+                        @office.Country
+                    </td>
+                    <td class="col-3 d-flex justify-content-center">
+                        @office.City
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        @office.Headquarter
+                    </td>
+                    <td class="col-3 d-flex justify-content-center">
+                        @office.CountOfEmployees
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        <a asp-controller="Offices" asp-action="Details" asp-route-id="@office.Id" class="btn btn-dark btn-sm mobile-fondsize-11">Details</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

@@ -1,0 +1,85 @@
+﻿@model CompanyRegister.ViewModels.Companies.DetailsCompanyViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="h2 text-center font-weight-bold text-dark">Company Details</div>
+<hr class="w-50" />
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="h4 font-weight-bold text-center">@Model.Name</div>
+        <div class="card card-body bg-transparent shadow">
+            <div><span class="font-weight-bold">Date of creation:</span> @Model.CreationDate.ToString("d")</div>
+            @if (@Model.HeadQuarter == null)
+            {
+                <div class="mt-4"><span class="font-weight-bold">Headquarter:</span> N/A</div>
+            }
+            else
+            {
+                <div class="mt-4"><span class="font-weight-bold">Headquarter:</span> @Model.HeadQuarter</div>
+            }
+            <div class="mt-4">
+                <span class="font-weight-bold">Number of Employees:</span>
+                <a asp-area="" asp-controller="Employees" asp-action="All" asp-route-id="@Model.Id">                    
+                    @Model.NumberOfEmployees
+                </a>
+            </div>
+            <div class="mt-4 mb-2">
+                <span class="font-weight-bold">Number of Offices:</span>
+                <a asp-area="" asp-controller="Offices" asp-action="All" asp-route-id="@Model.Id">                    
+                    @Model.NumberOfOffices
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h4 font-weight-bold text-center">Actions</div>
+        <table class="table">
+            <tbody>
+                <tr class="row">
+                    <td class="col-10 font-weight-bold">
+                        Add Office:
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        <a asp-area="" asp-controller="Offices" asp-action="Create" asp-route-id="@Model.Id"
+                           class=" btn btn-dark btn-sm">
+                            <span class="ml-2 mr-2">Add</span>
+                        </a>
+                    </td>
+                    <td class="col-10 font-weight-bold">
+                        Add Employee:
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        <a asp-area="" asp-controller="Employees" asp-action="Create" asp-route-id="@Model.Id"
+                           class=" btn btn-dark btn-sm">
+                            <span class="ml-2 mr-2">Add</span>
+                        </a>
+                    </td>
+                    <td class="col-10 font-weight-bold">
+                        Edit Company:
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        <a asp-area="" asp-controller="Companies" asp-action="Edit" asp-route-id="@Model.Id"
+                           class=" btn btn-warning btn-sm">
+                            <span class="ml-2 mr-2 text-white">Edit</span>
+                        </a>
+                    </td>
+                    <td class="col-10 font-weight-bold">
+                        Delete Company:
+                    </td>
+                    <td class="col-2 d-flex justify-content-center">
+                        <a asp-area="" asp-controller="Companies" asp-action="Delete" asp-route-id="@Model.Id"
+                           class=" btn btn-danger btn-sm">
+                            <span>Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

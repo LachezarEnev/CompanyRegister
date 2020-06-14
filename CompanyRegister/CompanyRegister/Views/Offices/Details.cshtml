@@ -1,0 +1,37 @@
+﻿@model CompanyRegister.ViewModels.Offices.DetailsOfficeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="h2 text-center font-weight-bold text-dark">Office Details</div>
+<hr class="w-50" />
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 card card-body bg-transparent shadow">
+        <div class="row">
+            <div class="col-md-6">
+                <div><span class="font-weight-bold">Company Name: </span>@Model.Company</div>
+                <div><span class="font-weight-bold">Office Employees: </span>@Model.NumberOfEmployees</div>
+                <div><span class="font-weight-bold">Headquarter: </span>@Model.Headquarter</div>               
+            </div>
+            <div class="col-md-6">
+                <div><span class="font-weight-bold">Country: </span>@Model.Country</div>
+                <div><span class="font-weight-bold">City: </span>@Model.City</div>
+                <div><span class="font-weight-bold">Street: </span>@Model.Street</div>
+                <div><span class="font-weight-bold">Street №: </span>@Model.StreetNumber</div>
+            </div>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-around mt-1">
+            <a asp-area="" asp-controller="Offices" asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn" style="background-color:peru">
+                <span class="text-white ml-2 mr-2">Edit</span>
+            </a>
+            <a asp-area="" asp-controller="Offices" asp-action="Delete" asp-route-id="@Model.Id"
+               class="btn" style="background-color:darkred">
+                <span class="text-white">Delete</span>
+            </a>
+        </div>
+    </div>
+</div>
