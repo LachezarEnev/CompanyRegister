@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CompanyRegister.ViewModels.Home.IndexCompanyViewModel>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Welcome to our company register!</h2>
+</div>
+
+<table class="table mt-5">
+    <thead>
+        <tr class="row" style="background-color: peru">
+            <th scope="col" class="col-3 d-flex justify-content-center">Company</th>
+            <th scope="col" class="col-2 d-flex justify-content-center">Date of creation</th>
+            <th scope="col" class="col-2 d-flex justify-content-center">Headquarter</th>
+            <th scope="col" class="col-3 d-flex justify-content-center">Number of Employees</th>
+            <th scope="col" class="col-2 d-flex justify-content-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model)
+        {
+            <tr class="row" style="background-color: antiquewhite">
+                <td class="col-3 d-flex justify-content-center">
+                    @company.Name
+                </td>
+                <td class="col-2 d-flex justify-content-center">
+                    @company.CreationDate.ToString("d")
+                </td>
+                @if (@company.Headquarter == null)
+                {
+                    <td class="col-2 d-flex justify-content-center">
+                        N/A
+                    </td>
+                }
+                else
+                {
+                    <td class="col-2 d-flex justify-content-center">
+                        @company.Headquarter
+                    </td>
+                }
+                <td class="col-3 d-flex justify-content-center">
+                    @company.NumberOfEmployees
+                </td>
+                <td class="col-2 d-flex justify-content-center">
+                    <a asp-controller="Companies" asp-action="Details" asp-route-id="@company.Id" class="btn btn-dark btn-sm mobile-fondsize-11">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -54,6 +54,17 @@ namespace CompanyRegister.Services
             return companies;
         }
 
+        public IEnumerable<Company> GettSearchedCompanies(string search)
+        {
+            List<Company> companies = this.context.Companies
+                .Where(x => x.Name.ToLower().Contains(search.ToLower()))
+                .Include(x => x.Employees)
+                .OrderBy(x => x.Name)
+                .ToList();
+
+            return companies;
+        }
+
         public void UpdateCompany(Company company)
         {
             if (company == null)

@@ -14,5 +14,7 @@ namespace CompanyRegister.Services.Contracts
         void UpdateCompany(Company company);
 
         void Delete(Company company);
+
+        IEnumerable<Company> GettSearchedCompanies(string search);
     }
 }

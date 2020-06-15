@@ -39,40 +39,39 @@
         <table class="table">
             <tbody>
                 <tr class="row">
-                    <td class="col-10 font-weight-bold">
+                    <td class="col-9 font-weight-bold">
                         Add Office:
                     </td>
-                    <td class="col-2 d-flex justify-content-center">
+                    <td class="col-3 d-flex justify-content-end">
                         <a asp-area="" asp-controller="Offices" asp-action="Create" asp-route-id="@Model.Id"
-                           class=" btn btn-dark btn-sm">
-                            <span class="ml-2 mr-2">Add</span>
+                           class=" btn btn-dark btn-sm"><i class="fas fa-plus-circle ml-1"></i>
+                            <span class="ml-1 mr-2">Add</span>
                         </a>
                     </td>
-                    <td class="col-10 font-weight-bold">
+                    <td class="col-9 font-weight-bold">
                         Add Employee:
                     </td>
-                    <td class="col-2 d-flex justify-content-center">
+                    <td class="col-3 d-flex justify-content-end">
                         <a asp-area="" asp-controller="Employees" asp-action="Create" asp-route-id="@Model.Id"
-                           class=" btn btn-dark btn-sm">
-                            <span class="ml-2 mr-2">Add</span>
+                           class=" btn btn-dark btn-sm"><i class="fas fa-plus-circle ml-1"></i>
+                           <span class="ml-1 mr-2">Add</span>
                         </a>
                     </td>
-                    <td class="col-10 font-weight-bold">
+                    <td class="col-9 font-weight-bold">
                         Edit Company:
                     </td>
-                    <td class="col-2 d-flex justify-content-center">
+                    <td class="col-3 d-flex justify-content-end">
                         <a asp-area="" asp-controller="Companies" asp-action="Edit" asp-route-id="@Model.Id"
-                           class=" btn btn-warning btn-sm">
-                            <span class="ml-2 mr-2 text-white">Edit</span>
+                           class=" btn btn-sm text-white" style="background-color:peru"><i class="fas fa-edit ml-1"></i>
+                            <span class="ml-1 mr-2">Edit</span>
                         </a>
                     </td>
-                    <td class="col-10 font-weight-bold">
+                    <td class="col-9 font-weight-bold">
                         Delete Company:
                     </td>
-                    <td class="col-2 d-flex justify-content-center">
+                    <td class="col-3 d-flex justify-content-end">
                         <a asp-area="" asp-controller="Companies" asp-action="Delete" asp-route-id="@Model.Id"
-                           class=" btn btn-danger btn-sm">
-                            <span>Delete</span>
+                           class=" btn btn-danger btn-sm" onclick="return  confirm('Are you sure you want to delete company: @Model.Name')"><i class="fas fa-trash"></i> Delete                          
                         </a>
                     </td>
                 </tr>
